@@ -23,9 +23,9 @@ def predict():
 
     text_vector = vectorizer.transform([sms_text])
     prediction = model.predict(text_vector)
-    label = 'spam' if prediction[0] else 'not spam'
+    label = 'Spam' if prediction[0] else 'Not Spam'
     
     return render_template('index.html', prediction=label)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0",debug=True,port=5000)
